@@ -9,3 +9,5 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 .idea
+/checkstyle-idea.xml
+/vcs.xml
