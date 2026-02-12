@@ -11,3 +11,4 @@
 .idea
 /checkstyle-idea.xml
 /vcs.xml
+target/
