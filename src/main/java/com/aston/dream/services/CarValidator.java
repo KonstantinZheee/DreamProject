@@ -36,7 +36,7 @@ public class CarValidator {
 
         if (!validatePower((auto.getPower()))) {
             errors.append(String.format("Мощность %d л.с. должна быть в диапазоне %d-%d%n",
-                    auto.get.Power(), MIN_POWER, MAX_POWER));
+                    auto.getPower(), MIN_POWER, MAX_POWER));
         }
 
         if (!validateYear((auto.getYear()))) {
