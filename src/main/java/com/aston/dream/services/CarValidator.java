@@ -1,6 +1,7 @@
 package com.aston.dream.services;
 
 import java.time.Year;
+import com.aston.dream.models.Auto;
 
 public class CarValidator {
     public static final int MIN_POWER = 20;
@@ -17,34 +18,35 @@ public class CarValidator {
     }
 
     public static boolean validateModel(String model) {
-        return model != null && !model.trim().isEmpty() &&
+        return model != null &&
+                !model.trim().isEmpty() &&
                 model.matches("^[a-zA-Zа-яА-Я0-9\\s-]+$");
     }
 
-    public static boolean validateCar(Car car) {
-        return car != null &&
-                validatePower(car.getPower()) &&
-                validateYear(car.getYear()) &&
-                validateModel(car.getModel());
+    public static boolean validateCar(Auto auto) {
+        return auto != null &&
+                validatePower(auto.getPower()) &&
+                validateYear(auto.getYear()) &&
+                validateModel(auto.getModel());
     }
 
-    public static String getValidationErrors(Car car) {
-        if (car == null) {return "Автомобиль не может быть null";}
+    public static String getValidationErrors(Auto auto) {
+        if (auto == null) {return "Автомобиль не может быть null";}
         StringBuilder errors = new StringBuilder();
 
-        if (!validatePower((car.getPower()))) {
+        if (!validatePower((auto.getPower()))) {
             errors.append(String.format("Мощность %d л.с. должна быть в диапазоне %d-%d%n",
-                    car.get.Power(), MIN_POWER, MAX_POWER));
+                    auto.get.Power(), MIN_POWER, MAX_POWER));
         }
 
-        if (!validateYear((car.getYear()))) {
+        if (!validateYear((auto.getYear()))) {
             errors.append(String.format("Год %d должен быть в диапазоне %d-%d%n",
-                    car.getYear(), MIN_YEAR, MAX_YEAR));
+                    auto.getYear(), MIN_YEAR, MAX_YEAR));
         }
 
-        if (!validateModel((car.getModel()))) {
+        if (!validateModel((auto.getModel()))) {
             errors.append(String.format("Модель содержит недопустимые символы%n",
-                    car.getModel()));
+                    auto.getModel()));
         }
 
         return errors.toString();
