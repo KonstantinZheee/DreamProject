@@ -45,7 +45,7 @@ public class CarValidator {
         }
 
         if (!validateModel((auto.getModel()))) {
-            errors.append(String.format("Модель содержит недопустимые символы%n",
+            errors.append(String.format("Модель '%s' содержит недопустимые символы%n",
                     auto.getModel()));
         }
 
