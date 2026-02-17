@@ -36,8 +36,7 @@ public class ConsoleController {
             case Constants.COMMAND_MANUAL:
                 System.out.println(Constants.OUTPUT_MANUAL);
                 Enricher enricher = new EnricherManual();
-                List<Auto> list = enricher.enrich();
-                list.forEach(System.out::println);
+                enricher.enrich().forEach(System.out::println);
                 break;
 
             case Constants.COMMAND_RANDOM:
