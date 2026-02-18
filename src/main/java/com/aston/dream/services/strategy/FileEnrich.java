@@ -2,6 +2,7 @@ package com.aston.dream.services.strategy;
 
 import com.aston.dream.models.Auto;
 import com.aston.dream.services.CarValidator;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -16,10 +17,18 @@ public class FileEnrich implements Enrichable {
     public List<Auto> enrich() {
         System.out.print("Введите имя файла из папки .files: ");
         String fileName = scanner.nextLine().trim();
-        if (fileName.isEmpty()) return List.of();
+
+        if (fileName.isEmpty()) {
+            System.out.println("Имя файла не введено");
+            return List.of();
+        }
 
         Path path = Path.of(".files", fileName);
-        if (!Files.exists(path)) return List.of();
+
+        if (!Files.exists(path)) {
+            System.out.println("Файл не найден: " + path);
+            return List.of();
+        }
 
         List<Auto> autos = new ArrayList<>();
 
@@ -49,11 +58,14 @@ public class FileEnrich implements Enrichable {
                         .year(year)
                         .build();
 
-                if (CarValidator.validateCar(auto)) autos.add(auto);
+                if (CarValidator.validateCar(auto)) {
+                    autos.add(auto);
+                }
             }
         } catch (Exception e) {
             return List.of();
         }
+
         return autos;
     }
 }
