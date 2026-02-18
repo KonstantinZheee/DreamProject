@@ -25,7 +25,7 @@ public class FileSaver {
             System.out.println(Constants.SAVE_NO_AUTOS_TO_SAVE);
         } else {
             System.out.println(Constants.SAVE_ENTER_FILE_NAME);
-            this.filename = scanner.nextLine().trim().toLowerCase();
+            this.filename = Paths.get(".files",scanner.nextLine().trim().toLowerCase()).toString();
             System.out.println(Constants.SAVE_ASK_SAVE_STRATEGY);
             String answer = scanner.nextLine().trim().toLowerCase();
             switch (answer) {

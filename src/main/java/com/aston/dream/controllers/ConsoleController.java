@@ -1,11 +1,14 @@
 package com.aston.dream.controllers;
 
 import com.aston.dream.constants.Constants;
+import com.aston.dream.models.Auto;
+import com.aston.dream.services.FileSaver;
 import com.aston.dream.services.enrichers.Enricher;
 import com.aston.dream.services.enrichers.EnricherFile;
 import com.aston.dream.services.enrichers.EnricherManual;
 import com.aston.dream.services.enrichers.EnricherRandom;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleController {
@@ -70,7 +73,10 @@ public class ConsoleController {
 
     private void execute(String outputMessage, Enricher enricher) {
         System.out.println(outputMessage);
-        enricher.enrich().forEach(System.out::println);
+        List<Auto> autos = enricher.enrich();
+        autos.forEach(System.out::println);
+        FileSaver fileSaver = new FileSaver();
+        fileSaver.saveAutos(autos);
     }
 
 }
