@@ -3,6 +3,7 @@ package com.aston.dream.controllers;
 import com.aston.dream.constants.Constants;
 import com.aston.dream.models.Auto;
 import com.aston.dream.services.enrichers.Enricher;
+import com.aston.dream.services.enrichers.EnricherFile;
 import com.aston.dream.services.enrichers.EnricherManual;
 import com.aston.dream.services.enrichers.EnricherRandom;
 
@@ -35,19 +36,15 @@ public class ConsoleController {
     private void processCommand(String command) {
         switch (command) {
             case Constants.COMMAND_MANUAL:
-                System.out.println(Constants.OUTPUT_MANUAL);
-                Enricher enricherManual = new EnricherManual();
-                enricherManual.enrich().forEach(System.out::println);
+                execute(Constants.COMMAND_MANUAL, new EnricherManual());
                 break;
 
             case Constants.COMMAND_RANDOM:
-                System.out.println(Constants.OUTPUT_RANDOM);
-                Enricher enricherRandom = new EnricherRandom();
-                enricherRandom.enrich().forEach(System.out::println);
+                execute(Constants.COMMAND_RANDOM, new EnricherRandom());
                 break;
 
             case Constants.COMMAND_FILE:
-                System.out.println(Constants.OUTPUT_FILE);
+                execute(Constants.COMMAND_FILE, new EnricherFile());
                 break;
 
             case Constants.COMMAND_EXIT:
@@ -72,4 +69,10 @@ public class ConsoleController {
         System.out.println(Constants.MESSAGE_SEPARATOR);
         System.out.println();
     }
+
+    private void execute(String outputMessage, Enricher enricher) {
+        System.out.println(outputMessage);
+        enricher.enrich().forEach(System.out::println);
+    }
+
 }
