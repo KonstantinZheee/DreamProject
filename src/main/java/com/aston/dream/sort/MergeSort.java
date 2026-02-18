@@ -1,5 +1,10 @@
 package com.aston.dream.sort;
 
+import com.aston.dream.models.Auto;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MergeSort {
     public List<Auto> sort(List<Auto> list) {
         if (list.size() <= 1) {
