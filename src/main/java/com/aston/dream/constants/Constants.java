@@ -27,6 +27,7 @@ public class Constants {
     public static final String MESSAGE_AVAILABLE_LIST = "Доступные команды: manual, random, file, exit";
     public static final String MESSAGE_ERROR = "Ошибка при обработке команды: %s";
     public static final String MESSAGE_PROGRAM_TERMINATED = "Программа завершена.";
+    public static final String MESSAGE_SORTED_LIST = "Отсортированный список: ";
 
     public static final String MANUAL_ASK_CONTINUE = "\nХотите ввести данные автомобиля? (да/нет): ";
     public static final String MESSAGE_NO = "нет";

@@ -1,5 +1,6 @@
 package com.aston.dream.models;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Auto implements Comparable<Auto> {
@@ -68,7 +69,10 @@ public class Auto implements Comparable<Auto> {
 
     @Override
     public int compareTo(Auto other) {
-        return Integer.compare(this.year, other.year);
+        return Comparator.comparing(Auto::getModel)
+                .thenComparing(Auto::getYear)
+                .thenComparing(Auto::getPower)
+                .compare(this, other);
     }
 
     @Override

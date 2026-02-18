@@ -7,6 +7,7 @@ import com.aston.dream.services.enrichers.Enricher;
 import com.aston.dream.services.enrichers.EnricherFile;
 import com.aston.dream.services.enrichers.EnricherManual;
 import com.aston.dream.services.enrichers.EnricherRandom;
+import com.aston.dream.sort.MergeSort;
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +17,6 @@ public class ConsoleController {
 
     public void start() {
         printWelcomeMessage();
-
         try (Scanner scanner = new Scanner(System.in)) {
             while (isRunning) {
                 try {
@@ -39,20 +39,16 @@ public class ConsoleController {
             case Constants.COMMAND_MANUAL:
                 execute(Constants.COMMAND_MANUAL, new EnricherManual());
                 break;
-
             case Constants.COMMAND_RANDOM:
                 execute(Constants.COMMAND_RANDOM, new EnricherRandom());
                 break;
-
             case Constants.COMMAND_FILE:
                 execute(Constants.COMMAND_FILE, new EnricherFile());
                 break;
-
             case Constants.COMMAND_EXIT:
                 System.out.println(Constants.OUTPUT_EXIT);
                 isRunning = false;
                 break;
-
             default:
                 System.out.printf(Constants.MESSAGE_UNKNOWN_COMMAND + "%n", command);
                 System.out.println(Constants.MESSAGE_AVAILABLE_LIST);
@@ -75,8 +71,10 @@ public class ConsoleController {
         System.out.println(outputMessage);
         List<Auto> autos = enricher.enrich();
         autos.forEach(System.out::println);
-        FileSaver fileSaver = new FileSaver();
-        fileSaver.saveToFile(autos);
+        List<Auto> sortedAutos = new MergeSort().sort(autos);
+        System.out.println(Constants.MESSAGE_SORTED_LIST);
+        sortedAutos.forEach(System.out::println);
+        new FileSaver().saveToFile(sortedAutos);
     }
 
 }
