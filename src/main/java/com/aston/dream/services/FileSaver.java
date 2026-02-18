@@ -20,12 +20,10 @@ public class FileSaver {
         this.scanner = new Scanner(System.in);
     }
 
-    public void saveAutos(final List<Auto> autos) {
-        if (autos == null || autos.isEmpty()) {
-            System.out.println(Constants.SAVE_NO_AUTOS_TO_SAVE);
-        } else {
+    private void saveAutos(final List<Auto> autos) {
+        if (!autos.isEmpty()) {
             System.out.println(Constants.SAVE_ENTER_FILE_NAME);
-            this.filename = Paths.get(".files",scanner.nextLine().trim().toLowerCase()).toString();
+            this.filename = Paths.get(".files", scanner.nextLine().trim().toLowerCase()).toString();
             System.out.println(Constants.SAVE_ASK_SAVE_STRATEGY);
             String answer = scanner.nextLine().trim().toLowerCase();
             switch (answer) {
@@ -41,6 +39,21 @@ public class FileSaver {
         }
     }
 
+     public void saveToFile(final List<Auto> autos){
+        System.out.println(Constants.SAVE_ASK_ABOUT_SAVING);
+        String answerAboutSaving = scanner.nextLine().trim().toLowerCase();
+        if (answerAboutSaving.equals(Constants.MESSAGE_NO)) {
+            System.out.println(Constants.SAVE_CANCELLED);
+            return;
+        }
+        if (!answerAboutSaving.equals(Constants.MESSAGE_YES)){
+            System.out.println(Constants.SAVE_INVALID_ANSWER);
+            saveToFile(autos);
+        } else {
+            saveAutos(autos);
+        }
+    }
+
     private void saveAllAutos(final List<Auto> autos, final String filename) {
         try {
             createDirectoryIfNotExists(filename);
@@ -48,6 +61,7 @@ public class FileSaver {
             for (Auto auto : autos) {
                 appendAutoToFile(auto);
             }
+            System.out.flush();
             System.out.printf(Constants.SAVE_AUTOS_SAVED_SUCCESS, autos.size(), filename);
         } catch (IOException e) {
             System.err.printf(Constants.SAVE_ERROR_SAVING_AUTOS, e.getMessage());
@@ -74,6 +88,7 @@ public class FileSaver {
                     i--;
                 }
             }
+            System.out.flush();
             System.out.printf(Constants.SELECTIVE_SAVE_COMPLETED, savedCount, filename);
         } catch (IOException e) {
             System.err.printf(Constants.SAVE_ERROR_SAVING_AUTOS, e.getMessage());
@@ -98,6 +113,4 @@ public class FileSaver {
         Files.writeString(path, auto.toString() + System.lineSeparator(),
                 StandardOpenOption.APPEND);
     }
-
-
 }

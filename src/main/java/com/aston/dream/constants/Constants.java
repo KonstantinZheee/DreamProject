@@ -66,6 +66,8 @@ public class Constants {
     public static final String SAVE_AUTO_SKIPPED = "Автомобиль НЕ сохранен.";
     public static final String SAVE_INVALID_ANSWER = "Введите \"да\" или \"нет\".";
     public static final String SELECTIVE_SAVE_COMPLETED = "Сохранено %d автомобилей в файл '%s'%n";
+    public static final String SAVE_ASK_ABOUT_SAVING = "Хотите сохранить автомобили в файл? (да/нет)";
+    public static final String SAVE_CANCELLED = "Сохранение в файл отменено.";
 
     public static final String SAVE_ALL = "1";
     public static final String SAVE_SELECTIVE = "2";

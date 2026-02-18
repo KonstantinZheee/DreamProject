@@ -76,7 +76,7 @@ public class ConsoleController {
         List<Auto> autos = enricher.enrich();
         autos.forEach(System.out::println);
         FileSaver fileSaver = new FileSaver();
-        fileSaver.saveAutos(autos);
+        fileSaver.saveToFile(autos);
     }
 
 }
