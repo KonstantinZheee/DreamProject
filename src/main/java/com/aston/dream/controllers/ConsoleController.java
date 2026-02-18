@@ -1,13 +1,11 @@
 package com.aston.dream.controllers;
 
 import com.aston.dream.constants.Constants;
-import com.aston.dream.models.Auto;
 import com.aston.dream.services.enrichers.Enricher;
 import com.aston.dream.services.enrichers.EnricherFile;
 import com.aston.dream.services.enrichers.EnricherManual;
 import com.aston.dream.services.enrichers.EnricherRandom;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleController {
