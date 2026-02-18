@@ -65,7 +65,6 @@ public class FileEnrich implements Enrichable {
         } catch (Exception e) {
             return List.of();
         }
-
         return autos;
     }
 }
