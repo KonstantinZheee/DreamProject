@@ -12,3 +12,4 @@
 /checkstyle-idea.xml
 /vcs.xml
 target/
+.files
