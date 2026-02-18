@@ -58,11 +58,13 @@ public class Constants {
             Хотите сохранить все автомобили сразу или сохранять в файл автомобили по одному?
             Введите '1' для сохранения всех или '2' для поштучного выбора:\s""";
     public static final String SAVE_INVALID_SAVE_STRATEGY = "Некорректный выбор стратегии сохранения.";
-    public static final String AUTOS_SAVED_SUCCESS = "Сохранено %d автомобилей в файл '%s'%n";
-    public static final String ERROR_SAVING_AUTOS = "Ошибка при сохранении автомобилей: %s%n";
-    public static final String ASK_SAVE_AUTO = "\nАвтомобиль %d: %s\nСохранить этот автомобиль? (да/нет): ";
-    public static final String AUTO_SAVED = "Автомобиль сохранен.";
-    public static final String AUTO_SKIPPED = "Автомобиль пропущен.";
+    public static final String SAVE_AUTOS_SAVED_SUCCESS = "Сохранено %d автомобилей в файл '%s'%n";
+    public static final String SAVE_ERROR_SAVING_AUTOS = "Ошибка при сохранении автомобилей: %s%n";
+    public static final String SAVE_ENTER_FILE_NAME = "Введите имя файла: ";
+    public static final String SAVE_ASK_SAVE_AUTO = "\nАвтомобиль : %s\nСохранить этот автомобиль? (да/нет): ";
+    public static final String SAVE_AUTO_SAVED = "Автомобиль сохранен.";
+    public static final String SAVE_AUTO_SKIPPED = "Автомобиль НЕ сохранен.";
+    public static final String SAVE_INVALID_ANSWER = "Введите \"да\" или \"нет\".";
     public static final String SELECTIVE_SAVE_COMPLETED = "Сохранено %d автомобилей в файл '%s'%n";
 
     public static final String SAVE_ALL = "1";
