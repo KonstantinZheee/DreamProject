@@ -25,4 +25,13 @@ public class Constants {
     public static final String MESSAGE_AVAILABLE_LIST = "Доступные команды: manual, random, file, exit";
     public static final String MESSAGE_ERROR = "Ошибка при обработке команды: %s";
     public static final String MESSAGE_PROGRAM_TERMINATED = "Программа завершена.";
+
+    public static final int MIN_ARRAY_SIZE = 1;
+    public static final int MAX_ARRAY_SIZE = 50;
+
+    public static final String RANDOM_ENRICH_TITLE = "=== Генерация случайных автомобилей ===";
+    public static final String RANDOM_ENRICH_CANCELLED = "Генерация отменена";
+    public static final String RANDOM_ASK_COUNT = "Сколько автомобилей сгенерировать? (0 - отмена, %d-%d): ";
+    public static final String ERROR_INVALID_NUMBER = "Ошибка: введите корректное число";
+    public static final String ERROR_SIZE_RANGE = "Ошибка: размер должен быть от %d до %d\n";
 }
