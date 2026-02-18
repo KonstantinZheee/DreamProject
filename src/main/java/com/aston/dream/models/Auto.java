@@ -73,11 +73,7 @@ public class Auto implements Comparable<Auto> {
 
     @Override
     public String toString() {
-        return "Auto{" +
-                "power=" + power +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                '}';
+        return String.format("Автомобиль: %s, мощность: %d, год выпуска: %d.",model, power, year);
     }
 
     @Override
@@ -92,6 +88,5 @@ public class Auto implements Comparable<Auto> {
     public int hashCode() {
         return Objects.hash(power, model, year);
     }
-    //ToDo Реализовать класс с использованием Паттерна Builder
 }
 

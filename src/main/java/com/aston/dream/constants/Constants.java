@@ -1,7 +1,9 @@
 package com.aston.dream.constants;
 
 public class Constants {
-    private Constants(){}
+    private Constants(){
+        throw new UnsupportedOperationException();
+    }
 
     public static final String COMMAND_MANUAL = "manual";
     public static final String COMMAND_RANDOM = "random";
@@ -26,9 +28,25 @@ public class Constants {
     public static final String MESSAGE_ERROR = "Ошибка при обработке команды: %s";
     public static final String MESSAGE_PROGRAM_TERMINATED = "Программа завершена.";
 
+    public static final String MANUAL_ASK_CONTINUE = "\nХотите ввести данные автомобиля? (да/нет): ";
+    public static final String MESSAGE_NO = "нет";
+    public static final String MESSAGE_YES = "да";
+    public static final String MANUAL_INPUT_COMPLETED = "Ввод данных завершен.";
+    public static final String MANUAL_INVALID_ANSWER = "Пожалуйста, введите 'да' или 'нет'";
+    public static final String MANUAL_CAR_ADDED_SUCCESS = "Автомобиль успешно добавлен!";
+    public static final String MANUAL_VALIDATION_ERRORS = "Ошибки валидации:";
+    public static final String MANUAL_CAR_NOT_ADDED = "Автомобиль не был добавлен. Попробуйте снова.";
+    public static final String MANUAL_ASK_MODEL = "\nВведите модель автомобиля: ";
+    public static final String MANUAL_INVALID_MODEL = "Некорректная модель. " +
+            "Используйте буквы, цифры, пробелы и дефисы.";
+    public static final String MANUAL_ASK_POWER = "\nВведите мощность автомобиля (л.с.) от %d до %d: ";
+    public static final String MANUAL_INVALID_POWER = "Мощность должна быть в диапазоне от %d до %d";
+    public static final String MANUAL_INVALID_NUMBER = "Пожалуйста, введите целое число";
+    public static final String MANUAL_ASK_YEAR = "\nВведите год выпуска от %d до %d: ";
+    public static final String MANUAL_INVALID_YEAR = "Год должен быть в диапазоне от %d до %d";
+
     public static final int MIN_ARRAY_SIZE = 1;
     public static final int MAX_ARRAY_SIZE = 50;
-
     public static final String RANDOM_ENRICH_TITLE = "=== Генерация случайных автомобилей ===";
     public static final String RANDOM_ENRICH_CANCELLED = "Генерация отменена";
     public static final String RANDOM_ASK_COUNT = "Сколько автомобилей сгенерировать? (0 - отмена, %d-%d): ";
