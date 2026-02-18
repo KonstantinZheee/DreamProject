@@ -4,6 +4,7 @@ import com.aston.dream.constants.Constants;
 import com.aston.dream.models.Auto;
 import com.aston.dream.services.enrichers.Enricher;
 import com.aston.dream.services.enrichers.EnricherManual;
+import com.aston.dream.services.enrichers.EnricherRandom;
 
 import java.util.List;
 import java.util.Scanner;
@@ -35,12 +36,14 @@ public class ConsoleController {
         switch (command) {
             case Constants.COMMAND_MANUAL:
                 System.out.println(Constants.OUTPUT_MANUAL);
-                Enricher enricher = new EnricherManual();
-                enricher.enrich().forEach(System.out::println);
+                Enricher enricherManual = new EnricherManual();
+                enricherManual.enrich().forEach(System.out::println);
                 break;
 
             case Constants.COMMAND_RANDOM:
                 System.out.println(Constants.OUTPUT_RANDOM);
+                Enricher enricherRandom = new EnricherRandom();
+                enricherRandom.enrich().forEach(System.out::println);
                 break;
 
             case Constants.COMMAND_FILE:
