@@ -10,6 +10,7 @@ import com.aston.dream.services.enrichers.EnricherRandom;
 import com.aston.dream.sort.MergeSort;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class ConsoleController {
@@ -70,11 +71,16 @@ public class ConsoleController {
     private void execute(String outputMessage, Enricher enricher) {
         System.out.println(outputMessage);
         List<Auto> autos = enricher.enrich();
-        autos.forEach(System.out::println);
-        List<Auto> sortedAutos = new MergeSort().sort(autos);
-        System.out.println(Constants.MESSAGE_SORTED_LIST);
-        sortedAutos.forEach(System.out::println);
-        new FileSaver().saveToFile(sortedAutos);
+        Optional.ofNullable(autos)
+                .filter(list -> !list.isEmpty())
+                .ifPresentOrElse(notEmptyList -> {
+                    notEmptyList.forEach(System.out::println);
+                    List<Auto> sortedAutos = new MergeSort().sort(notEmptyList);
+                    System.out.println(Constants.MESSAGE_SORTED_LIST);
+                    sortedAutos.forEach(System.out::println);
+                    new FileSaver().saveToFile(sortedAutos);
+                }, () -> System.out.println(Constants.NO_AUTOS)
+        );
     }
 
 }
