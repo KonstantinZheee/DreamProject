@@ -1,5 +1,6 @@
 package com.aston.dream.services.strategy;
 
+import com.aston.dream.constants.Constants;
 import com.aston.dream.models.Auto;
 import com.aston.dream.services.CarValidator;
 
@@ -15,18 +16,18 @@ public class FileEnrich implements Enrichable {
 
     @Override
     public List<Auto> enrich() {
-        System.out.print("Введите имя файла из папки .files: ");
+        System.out.print(Constants.FILE_ENTER_FILE_NAME);
         String fileName = scanner.nextLine().trim();
 
         if (fileName.isEmpty()) {
-            System.out.println("Имя файла не введено");
+            System.out.println(Constants.FILE_NO_FILE_NAME);
             return List.of();
         }
 
-        Path path = Path.of(".files", fileName);
+        Path path = Path.of(Constants.FILE_DIRECTORY, fileName);
 
         if (!Files.exists(path)) {
-            System.out.println("Файл не найден: " + path);
+            System.out.printf(Constants.FILE_NOT_FOUND, path);
             return List.of();
         }
 
@@ -36,7 +37,7 @@ public class FileEnrich implements Enrichable {
             for (String line : Files.readAllLines(path)) {
                 String s = line.trim();
                 if (s.isEmpty()) continue;
-                if (s.equalsIgnoreCase("model;power;year")) continue;
+                if (s.equalsIgnoreCase(Constants.FILE_READING_SEQUENCE)) continue;
 
                 String[] parts = s.split(";");
                 if (parts.length != 3) continue;

@@ -9,11 +9,8 @@ public class Constants {
     public static final String COMMAND_RANDOM = "random";
     public static final String COMMAND_FILE = "file";
     public static final String COMMAND_EXIT = "exit";
-
-    public static final String OUTPUT_MANUAL = "manual";
-    public static final String OUTPUT_RANDOM = "random";
-    public static final String OUTPUT_FILE = "file";
     public static final String OUTPUT_EXIT = "выход";
+    public static final String NO_AUTOS = "Коллекция автомобилей пустая.";
 
     public static final String MESSAGE_WELCOME = "=== Консольный контроллер ===";
     public static final String MESSAGE_AVAILABLE_COMMANDS = "Доступные команды:";
@@ -46,6 +43,12 @@ public class Constants {
     public static final String MANUAL_ASK_YEAR = "\nВведите год выпуска от %d до %d: ";
     public static final String MANUAL_INVALID_YEAR = "Год должен быть в диапазоне от %d до %d";
 
+    public static final String FILE_ENTER_FILE_NAME = "\"Введите имя файла из папки getFromFile: ";
+    public static final String FILE_NO_FILE_NAME = "Имя файла не введено.";
+    public static final String FILE_DIRECTORY = "getFromFile";
+    public static final String FILE_NOT_FOUND = "Файл не найден: %s";
+    public static final String FILE_READING_SEQUENCE = "model;power;year";
+
     public static final int MIN_ARRAY_SIZE = 1;
     public static final int MAX_ARRAY_SIZE = 50;
     public static final String RANDOM_ENRICH_TITLE = "=== Генерация случайных автомобилей ===";
@@ -54,7 +57,6 @@ public class Constants {
     public static final String ERROR_INVALID_NUMBER = "Ошибка: введите корректное число";
     public static final String ERROR_SIZE_RANGE = "Ошибка: размер должен быть от %d до %d\n";
 
-    public static final String SAVE_NO_AUTOS_TO_SAVE = "Нет автомобилей для сохранения.";
     public static final String SAVE_ASK_SAVE_STRATEGY = """
             Хотите сохранить все автомобили сразу или сохранять в файл автомобили по одному?
             Введите '1' для сохранения всех или '2' для поштучного выбора:\s""";
