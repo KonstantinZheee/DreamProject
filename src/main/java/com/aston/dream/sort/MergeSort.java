@@ -1,5 +1,10 @@
 package com.aston.dream.sort;
 
+import com.aston.dream.models.Auto;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MergeSort {
     public List<Auto> sort(List<Auto> list) {
         if (list.size() <= 1) {
@@ -22,18 +27,32 @@ public class MergeSort {
         int i = 0, j = 0;
 
         while (i < left.size() && j < right.size()) {
-            if (left.get(i).compareTo(right.get(j)) < 0) {
+            if (left.get(i).getYear() % 2 == 0) {
+                if (right.get(j).getYear() < left.get(i).getYear()) {
+                    result.add(right.get(j));
+                    j++;
+                } else {
+                    result.add(left.get(i));
+                    i++;
+                }
+            } else {
                 result.add(left.get(i));
                 i++;
-            } else {
-                result.add(right.get(j));
-                j++;
             }
         }
 
-        result.addAll(left.subList(i, left.size()));
-        result.addAll(right.subList(j, right.size()));
-
+        while (i < left.size()) {
+            if (left.get(i).getYear() % 2 == 0) {
+                result.add(left.get(i));
+            }
+            i++;
+        }
+        while (j < right.size()) {
+            if (right.get(j).getYear() % 2 == 0) {
+                result.add(right.get(j));
+            }
+            j++;
+        }
         return result;
     }
 }
